@@ -38,7 +38,7 @@ sudo apt-get -y install \
     libffi-dev \
     liblzma-dev \
     net-tools \
-    netcat-traditional \
+    netcat-openbsd \
     software-properties-common
 
 # Add PPA for Mozilla team (if not already added)
