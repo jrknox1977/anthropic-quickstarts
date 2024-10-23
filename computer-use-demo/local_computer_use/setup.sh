@@ -6,6 +6,12 @@ set -e
 sudo apt-get update && \
 sudo apt-get -y upgrade
 
+# Install Rust and Cargo
+if ! command -v cargo &> /dev/null; then
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    source $HOME/.cargo/env
+fi
+
 # Install build essentials and UI requirements
 sudo apt-get -y install \
     build-essential \
@@ -34,12 +40,6 @@ sudo apt-get -y install \
     net-tools \
     netcat \
     software-properties-common
-
-# Install Rust and Cargo
-if ! command -v cargo &> /dev/null; then
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
-    source $HOME/.cargo/env
-fi
 
 # Add PPA for Mozilla team (if not already added)
 sudo add-apt-repository -y ppa:mozillateam/ppa
